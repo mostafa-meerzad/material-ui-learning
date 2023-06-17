@@ -7,13 +7,13 @@ import { Container, Grid } from "@mui/material";
 import Card from "./components/Card";
 
 import "./App.css";
+import PrimarySearchAppBar from "./components/AppBar";
 function App() {
   return (
-    <Container sx={{ border: "2px solid red" }}>
-      <Grid container spacing={2}>
-        <Card />
-      </Grid>
-    </Container>
+    <>
+        <PrimarySearchAppBar/>
+
+    </>
   );
 }
 
