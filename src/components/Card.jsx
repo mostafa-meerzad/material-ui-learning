@@ -2,13 +2,36 @@ import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 // Box component serves as a container for most of UI components, all properties are available through 'sx' prop
 import Box from "@mui/material/Box";
-import { Grid, Typography, Rating } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Rating,
+  createTheme,
+  ThemeProvider,
+} from "@mui/material";
 import { AccessTime } from "@mui/icons-material";
 
 function Card() {
   const [rate, setRate] = useState();
+
+  const myTheme = createTheme({
+    components: {
+      MuiTypography: {
+        variants: [
+          {
+            props: {
+              variant: "body2",
+            },
+            style:{
+              fontSize:"10px"
+            }
+          },
+        ],
+      },
+    },
+  });
   return (
-    <>
+    <ThemeProvider theme={myTheme}>
       <Grid item xs={6} sm={4} md={3} xl={2}>
         <Paper elevation={10}>
           <img
@@ -32,7 +55,7 @@ function Card() {
           </Box>
         </Paper>
       </Grid>
-    </>
+    </ThemeProvider>
     // </Box>
   );
 }
